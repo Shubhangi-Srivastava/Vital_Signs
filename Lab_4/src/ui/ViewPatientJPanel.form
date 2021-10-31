@@ -26,25 +26,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPatientID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDateOfVisit" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTemperature" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBloodPressure" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCommunity" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblBloodPressure" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtBloodPressure" linkSize="1" min="-2" pref="144" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPatientID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDateOfVisit" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTemperature" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtDateOfVisit" linkSize="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="txtPatientID" linkSize="1" max="32767" attributes="0"/>
-                                  <Component id="txtTemperature" linkSize="1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="txtBloodPressure" linkSize="1" pref="144" max="32767" attributes="0"/>
+                          <Component id="txtDateOfVisit" linkSize="1" pref="144" max="32767" attributes="0"/>
+                          <Component id="txtPatientID" linkSize="1" max="32767" attributes="0"/>
+                          <Component id="txtTemperature" linkSize="1" max="32767" attributes="0"/>
+                          <Component id="txtCommunity" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -56,7 +51,7 @@
                       <Component id="btnAddNewEncounter" min="-2" pref="293" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="278" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,19 +74,24 @@
                   <Component id="lblDateOfVisit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDateOfVisit" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblTemperature" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTemperature" linkSize="2" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtTemperature" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblBloodPressure" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtBloodPressure" linkSize="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblBloodPressure" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtBloodPressure" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="99" max="32767" attributes="0"/>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -247,6 +247,19 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCommunity">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Community"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCommunity">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCommunityActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

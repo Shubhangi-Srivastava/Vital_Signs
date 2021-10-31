@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Encounter;
@@ -17,6 +18,7 @@ import model.VitalSigns;
 public class ViewEncounterListJPanel extends javax.swing.JPanel {
 
     
+    //ArrayList<Encounter> list = new ArrayList();
     Encounter history3;
     /**
      * Creates new form ViewEncounterListJPanel
@@ -38,21 +40,23 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl2 = new javax.swing.JTable();
+        lblTtile = new javax.swing.JLabel();
+        btnFilterByCommunity = new java.awt.Button();
 
         tbl2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Date OF Visit", "Blood Pressure", "Temperature", "Patient ID"
+                "Date OF Visit", "Blood Pressure", "Temperature", "Patient ID", "Community"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -61,27 +65,62 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tbl2);
 
+        lblTtile.setFont(new java.awt.Font("Chalkboard", 1, 18)); // NOI18N
+        lblTtile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTtile.setText("View Patient Encounter List");
+
+        btnFilterByCommunity.setLabel("Display Patient List based on the Community");
+        btnFilterByCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFilterByCommunityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane2)
-                .addGap(41, 41, 41))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(lblTtile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(222, 222, 222)
+                .addComponent(btnFilterByCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(334, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(20, 20, 20)
+                .addComponent(lblTtile, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(btnFilterByCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(239, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFilterByCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterByCommunityActionPerformed
+        
+        lblTtile.setText("Filter By Community");
+
+        String searchCommunity = null;
+        String community = JOptionPane.showInputDialog(null, "Enter the Community.", searchCommunity);
+        ArrayList<VitalSigns> list = history3.filterByCommunity(community);
+        
+        populateTable3(list);
+        
+    }//GEN-LAST:event_btnFilterByCommunityActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnFilterByCommunity;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblTtile;
     private javax.swing.JTable tbl2;
     // End of variables declaration//GEN-END:variables
 
@@ -93,15 +132,37 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
     
     for(VitalSigns cd : history3.getHistory()) {
         
-        Object[] row = new Object[4];
+        Object[] row = new Object[5];
         row[0] = cd;
         row[1] = cd.getBlood_pressure();
         row[2] = cd.getTemperature();
         row[3] = cd.getUnique_id();
+        row[4] = cd.getCommunity();
   
         model.addRow(row);
     }
     }
+    
+    
+    private void populateTable3(ArrayList<VitalSigns> list) {
+     
+    
+    DefaultTableModel model = (DefaultTableModel) tbl2.getModel();
+    model.setRowCount(0);
+    
+    for(VitalSigns cd : list) {
+        
+        Object[] row = new Object[5];
+        row[0] = cd;
+        row[1] = cd.getBlood_pressure();
+        row[2] = cd.getTemperature();
+        row[3] = cd.getUnique_id();
+        row[4] = cd.getCommunity();
+  
+        model.addRow(row);
+    }
+    }
+    
 
 
 

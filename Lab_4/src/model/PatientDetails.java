@@ -6,6 +6,7 @@
 package model;
 
 import java.util.UUID;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,7 +30,14 @@ public class PatientDetails {
     }
 
     public void setUnique_id(int unique_id) {
+        JOptionPane.showMessageDialog(null, String.valueOf(unique_id));
+        
+           
         this.unique_id = unique_id;
+        
+//        else {
+//            JOptionPane.showMessageDialog(null, "Please Enter a valid Unique ID");
+//        }
     }
 
     public String getDate_of_visit() {

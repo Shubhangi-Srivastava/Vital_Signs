@@ -6,6 +6,7 @@
 package model;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +31,28 @@ public class Encounter {
     
     public VitalSigns addNewEncounter() {
         VitalSigns vs = new VitalSigns();
+      
+       
         history.add(vs);
         return vs;
     }
+    
+    
+    
+    public ArrayList<VitalSigns> filterByCommunity(String community) {
+        
+       
+            ArrayList<VitalSigns> list = new ArrayList<>();
+        for(VitalSigns vs : history) { 
+           if(vs.getCommunity().contains(community)) 
+        {
+            
+               list.add(vs);
+                
+         }  
+           
+    }
+       
+        return list;
+   }
 }

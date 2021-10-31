@@ -5,6 +5,8 @@
  */
 package model;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author shubhangisrivastava
@@ -15,7 +17,17 @@ public class VitalSigns {
     double blood_pressure;
     int unique_id;
     String date_of_visit;
+   String community;
 
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
+    
     public int getUnique_id() {
         return unique_id;
     }
@@ -52,10 +64,23 @@ public class VitalSigns {
     }
     
     
+//    public PatientDetails getPatientDetails(String community) {
+//        
+//        PatientDetails pd = new PatientDetails();
+//        pd.getCommunity();
+//        pd.setCommunity(community);
+//        JOptionPane.showMessageDialog(null, community);
+//        return pd;
+//    }
+    
+    
+    
     @Override
     public String toString() {
         return date_of_visit;
        
     } 
+    
+    
    
 }

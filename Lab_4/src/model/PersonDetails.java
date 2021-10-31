@@ -6,6 +6,7 @@
 package model;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +34,11 @@ public class PersonDetails {
     }
 
     public void setCity(String city) {
-        this.city = city;
+        if(city.matches("[A-Za-z]+")) {
+            this.city = city;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid city name.");
+        }   
     }
 
     public String getAddr() {
@@ -41,7 +46,11 @@ public class PersonDetails {
     }
 
     public void setAddr(String addr) {
-        this.addr = addr;
+        if(addr.matches("[A-Za-z]+")) {
+            this.addr = addr;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Address.");
+        }    
     }
 
     public String getName() {
@@ -49,7 +58,11 @@ public class PersonDetails {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.matches("[A-Za-z]+")) {
+            this.name = name;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Person Name.");
+        }     
     }
 
     public String getGender() {
@@ -57,7 +70,11 @@ public class PersonDetails {
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+//        if(!gender.contains(null) || !gender.contains("")) {
+            this.gender = gender;
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Please select a Gender to proceed");
+//        }  
     }
 
     public String getCommunity() {
@@ -65,7 +82,11 @@ public class PersonDetails {
     }
 
     public void setCommunity(String community) {
-        this.community = community;
+         if(community.matches("[A-Za-z]+")) {
+           this.community = community;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Community Name.");
+        }    
     }
 
     public int getAge() {
@@ -73,7 +94,17 @@ public class PersonDetails {
     }
 
     public void setAge(int age) {
-        this.age = age;
+//      if(String.valueOf(age).contains("[a-zA-Z]+")) {
+//           JOptionPane.showMessageDialog(null, "Please enter a valid age");
+//      } else {
+////        if() {  
+//        this.age = age;   
+//        }
+      if(age > 0 && age <110) {
+           this.age = age;   
+      } else {
+          JOptionPane.showMessageDialog(null, "Please enter a valid age");
+      }   
     }
     
      @Override

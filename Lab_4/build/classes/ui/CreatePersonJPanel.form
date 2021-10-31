@@ -25,27 +25,27 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPersonName" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="lblAge" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="lblAddress" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="lblCommunity" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="lblCity" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                           <Component id="lblGender" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPersonName" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <Component id="lblAge" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <Component id="lblAddress" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <Component id="lblCommunity" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <Component id="lblCity" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtAddress" min="-2" pref="183" max="-2" attributes="0"/>
-                                  <Component id="txtGender" min="-2" pref="183" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtPersonName" max="32767" attributes="0"/>
-                                      <Component id="txtAge" pref="183" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtCommunity" min="-2" pref="183" max="-2" attributes="0"/>
-                                  <Component id="txtCity" min="-2" pref="183" max="-2" attributes="0"/>
-                              </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="txtFemale" min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtMale" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtOther" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="txtAddress" min="-2" pref="183" max="-2" attributes="0"/>
+                          <Component id="txtPersonName" max="32767" attributes="0"/>
+                          <Component id="txtAge" max="32767" attributes="0"/>
+                          <Component id="txtCommunity" min="-2" pref="183" max="-2" attributes="0"/>
+                          <Component id="txtCity" min="-2" pref="183" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -71,28 +71,33 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Group type="102" attributes="0">
-                                                              <Component id="lblTitle" min="-2" pref="52" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                                              <Component id="lblPersonName" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Component id="txtPersonName" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="lblAge" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblTitle" min="-2" pref="52" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                                      <Component id="lblPersonName" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="txtAge" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtPersonName" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="lblGender" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblAge" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="txtGender" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtAge" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblGender" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="lblAddress" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtAddress" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtFemale" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtMale" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtOther" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtAddress" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblCommunity" min="-2" max="-2" attributes="0"/>
@@ -152,24 +157,53 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPersonName">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPersonNameKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAge">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtGender">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAgeKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAddressKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCommunity">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCommunityKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCity">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCityKeyReleased"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="btnCreate">
       <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="label" type="java.lang.String" value="Create"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="java.awt.Checkbox" name="txtFemale">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Female"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Checkbox" name="txtMale">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Male"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Checkbox" name="txtOther">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Other"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
