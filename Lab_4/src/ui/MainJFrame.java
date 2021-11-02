@@ -49,12 +49,13 @@ public class MainJFrame extends javax.swing.JFrame {
         btnViewPatients = new javax.swing.JButton();
         btnEncounterList = new javax.swing.JButton();
         workPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         splitPane3.setBackground(new java.awt.Color(204, 204, 255));
 
-        controlPanel3.setBackground(new java.awt.Color(102, 102, 0));
+        controlPanel3.setBackground(new java.awt.Color(0, 204, 204));
 
         btnCreate3.setText("Create Person");
         btnCreate3.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +105,7 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanel3Layout.setVerticalGroup(
             controlPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanel3Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(128, 128, 128)
                 .addComponent(btnCreate3)
                 .addGap(18, 18, 18)
                 .addComponent(btnView)
@@ -112,24 +113,29 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnViewPatients)
                 .addGap(18, 18, 18)
                 .addComponent(btnEncounterList)
-                .addContainerGap(385, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
         controlPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate3, btnEncounterList, btnView, btnViewPatients});
 
         splitPane3.setLeftComponent(controlPanel3);
 
-        workPanel.setBackground(new java.awt.Color(153, 153, 0));
+        workPanel.setBackground(new java.awt.Color(0, 204, 204));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/shubhangisrivastava/Downloads/imgbin-physician-patient-doctor-C3pgmf5mJctj9PbhJHyJSqyYD.jpeg")); // NOI18N
 
         javax.swing.GroupLayout workPanelLayout = new javax.swing.GroupLayout(workPanel);
         workPanel.setLayout(workPanelLayout);
         workPanelLayout.setHorizontalGroup(
             workPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 802, Short.MAX_VALUE)
+            .addGroup(workPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         workPanelLayout.setVerticalGroup(
             workPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 601, Short.MAX_VALUE)
         );
 
         splitPane3.setRightComponent(workPanel);
@@ -139,7 +145,7 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(splitPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE)
+                .addComponent(splitPane3)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -219,6 +225,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnViewPatients;
     private javax.swing.JPanel controlPanel3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane splitPane3;
     private javax.swing.JPanel workPanel;
     // End of variables declaration//GEN-END:variables

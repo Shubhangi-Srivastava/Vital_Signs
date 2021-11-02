@@ -43,6 +43,9 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
         lblTtile = new javax.swing.JLabel();
         btnFilterByCommunity = new java.awt.Button();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
+        tbl2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tbl2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

@@ -6,6 +6,8 @@
 package ui;
 
 import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.PersonDetails;
 import model.PersonDirectory;
@@ -16,8 +18,6 @@ import model.PersonDirectory;
  */
 public class CreatePersonJPanel extends javax.swing.JPanel {
 
-    
-    
      PersonDirectory history;
     /**
      * Creates new form CreateJPanel
@@ -37,37 +37,40 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        lblAge = new javax.swing.JLabel();
-        lblGender = new javax.swing.JLabel();
-        lblAddress = new javax.swing.JLabel();
-        lblPersonName = new javax.swing.JLabel();
-        lblCommunity = new javax.swing.JLabel();
-        lblCity = new javax.swing.JLabel();
-        txtPersonName = new javax.swing.JTextField();
-        txtAge = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
-        txtCommunity = new javax.swing.JTextField();
-        txtCity = new javax.swing.JTextField();
         btnCreate = new java.awt.Button();
+        jPanel1 = new javax.swing.JPanel();
+        lblPersonName = new javax.swing.JLabel();
+        txtPersonName = new javax.swing.JTextField();
+        lblAge = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        lblGender = new javax.swing.JLabel();
         txtFemale = new java.awt.Checkbox();
         txtMale = new java.awt.Checkbox();
         txtOther = new java.awt.Checkbox();
+        lblAddress = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
+        txtCommunity = new javax.swing.JTextField();
+        lblCity = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(0, 204, 204));
 
         lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create Person Details");
 
-        lblAge.setText("Age:");
+        btnCreate.setLabel("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
-        lblGender.setText("Gender:");
-
-        lblAddress.setText("Address:");
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         lblPersonName.setText("Person Name:");
-
-        lblCommunity.setText("Community:");
-
-        lblCity.setText("City:");
 
         txtPersonName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -78,6 +81,8 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblAge.setText("Age:");
+
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtAgeKeyPressed(evt);
@@ -87,11 +92,26 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblGender.setText("Gender:");
+
+        txtFemale.setLabel("Female");
+
+        txtMale.setLabel("Male");
+
+        txtOther.setLabel("Other");
+
+        lblAddress.setText("Address:");
+
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAddressKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAddressKeyReleased(evt);
             }
         });
+
+        lblCommunity.setText("Community:");
 
         txtCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -99,25 +119,103 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCity.setText("City:");
+
         txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCityKeyReleased(evt);
             }
         });
 
-        btnCreate.setEnabled(false);
-        btnCreate.setLabel("Create");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
-            }
-        });
-
-        txtFemale.setLabel("Female");
-
-        txtMale.setLabel("Male");
-
-        txtOther.setLabel("Other");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(txtCity))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(txtCommunity))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 36, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(txtFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMale, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtOther, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(150, 150, 150)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(txtPersonName))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPersonName)
+                    .addComponent(txtPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblAge))
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblGender))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtMale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtOther, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblAddress))
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(lblCommunity)
+                        .addGap(6, 6, 6))
+                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCity)
+                        .addGap(12, 12, 12))
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,74 +227,23 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
                         .addGap(133, 133, 133)
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(150, 150, 150)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMale, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtOther, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPersonName)
-                            .addComponent(txtAge)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
+                        .addGap(176, 176, 176)
                         .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(93, 93, 93)
-                                                        .addComponent(lblPersonName))
-                                                    .addComponent(txtPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(lblAge))
-                                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblGender)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblAddress))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtMale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(txtOther, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(lblCommunity))
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCity))
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(202, 202, 202))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -224,12 +271,24 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
          
         
+        String pattern = "[A-Za-z]+";
+        String pattern1 = "^100|[1-9]?\\d$";
+                
+                
+        Pattern patt = Pattern.compile(pattern);
+        Pattern patt1 = Pattern.compile(pattern1);
+        Matcher match = patt.matcher(txtPersonName.getText());
+        Matcher match1 =  patt1.matcher(txtAge.getText());
+        Matcher match2 = patt.matcher(txtAddress.getText());
+        Matcher match3 = patt.matcher(txtCommunity.getText());
+        Matcher match4 = patt.matcher(txtCity.getText());
         
-
-        
+        if(!match.matches() || !match1.matches() || !match2.matches() || !match3.matches() || !match4.matches()) {
+            
+            JOptionPane.showMessageDialog(this, "Please enter valid details.");
+        } else {
         String person_name = txtPersonName.getText();
         int age = Integer.parseInt(txtAge.getText().toString());
-       // String gender = txtGender.getText();
         boolean female = txtFemale.getState();
         boolean male = txtMale.getState();
         boolean other = txtOther.getState();
@@ -237,14 +296,10 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         String community = txtCommunity.getText();
         String city = txtCity.getText();
 
-//        btnCreateDisability();
-        
         PersonDetails ps = history.addNewPerson();
-         
-        
+
         ps.setName(person_name);
-        ps.setAge(age);
-//        ps.setGender(gender);  
+        ps.setAge(age); 
         if(female == true){
            ps.setGender("Female");
         } else if(male ==true) {
@@ -253,6 +308,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             ps.setGender("Other");
         }
         ps.setAddr(address);  
+    
         ps.setCommunity(community);
         ps.setCity(city);
         
@@ -260,112 +316,115 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
                 
         txtPersonName.setText("");
         txtAge.setText("");
-//        txtGender.setText("");
         txtFemale.setState(false);
         txtMale.setState(false);
         txtOther.setState(false);
         txtAddress.setText("");
         txtCommunity.setText("");
         txtCity.setText("");
-//        txtTemperature.setText("");
-//        txtBloodPressure.setText("");
+        }
       
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void txtPersonNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonNameKeyReleased
         
-         int personName = txtPersonName.getText().length();
-         if(personName > 0) {
-             btnCreate.setEnabled(true);
-         } else {
-             btnCreate.setEnabled(false);
-         }
+//         int personName = txtPersonName.getText().length();
+//         if(personName > 0) {
+//             btnCreate.setEnabled(true);
+//         } else {
+//             btnCreate.setEnabled(false);
+//         }
  
     }//GEN-LAST:event_txtPersonNameKeyReleased
 
     private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
         
-        int age = txtAge.getText().length();
-         if(age > 0) {
-             btnCreate.setEnabled(true);
-         } else {
-             btnCreate.setEnabled(false);
-         }
+//        int age = txtAge.getText().length();
+//         if(age > 0) {
+//             btnCreate.setEnabled(true);
+//         } else {
+//             btnCreate.setEnabled(false);
+//         }
         
     }//GEN-LAST:event_txtAgeKeyReleased
 
     private void txtAddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyReleased
         
-        int address = txtAddress.getText().length();
-         if(address > 0) {
-             btnCreate.setEnabled(true);
-         } else {
-             btnCreate.setEnabled(false);
-         }   
+//        int address = txtAddress.getText().length();
+//         if(address > 0) {
+//             btnCreate.setEnabled(true);
+//         } else {
+//             btnCreate.setEnabled(false);
+//         }   
     }//GEN-LAST:event_txtAddressKeyReleased
 
     private void txtCommunityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityKeyReleased
             
-        int community = txtCommunity.getText().length();
-         if(community > 0) {
-             btnCreate.setEnabled(true);
-         } else {
-             btnCreate.setEnabled(false);
-         }  
+//        int community = txtCommunity.getText().length();
+//         if(community > 0) {
+//             btnCreate.setEnabled(true);
+//         } else {
+//             btnCreate.setEnabled(false);
+//         }  
         
     }//GEN-LAST:event_txtCommunityKeyReleased
 
     private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
         
-        int city = txtCity.getText().length();
-         if(city > 0) {
-             btnCreate.setEnabled(true);
-         } else {
-             btnCreate.setEnabled(false);
-         }  
+//        int city = txtCity.getText().length();
+//         if(city > 0) {
+//             btnCreate.setEnabled(true);
+//         } else {
+//             btnCreate.setEnabled(false);
+//         }  
     }//GEN-LAST:event_txtCityKeyReleased
 
     private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
        
-        char c= evt.getKeyChar();
-        String age= txtAge.getText();
-        
-        int length = age.length();
-        
-        if(c >= '0' && c <= '9') {
-            
-            if(length<2){
-                  txtAge.setEditable(true); 
-
-            } else {  
-            txtAge.setEditable(false);    
-            }
-        } else {
-                if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
-                    txtAge.setEditable(true);
-                } else {
-            txtAge.setEditable(false); 
-                }
-            }   
+//        char c= evt.getKeyChar();
+//        String age= txtAge.getText();
+//        
+//        int length = age.length();
+//        
+//        if(c >= '0' && c <= '9') {
+//            
+//            if(length<2){
+//                  txtAge.setEditable(true); 
+//
+//            } else {  
+//            txtAge.setEditable(false);    
+//            }
+//        } else {
+//                if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+//                    txtAge.setEditable(true);
+//                } else {
+//            txtAge.setEditable(false); 
+//                }
+//            }   
     }//GEN-LAST:event_txtAgeKeyPressed
 
     private void txtPersonNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonNameKeyPressed
 
-         char c= evt.getKeyChar();
-        
-        if(Character.isLetter(c) && !Character.isWhitespace(c) || Character.isISOControl(c)) {
-            
-           txtPersonName.setEditable(true); 
-        } else {
-             txtPersonName.setEditable(false); 
-       }
+//         char c= evt.getKeyChar();
+//        
+//        if(Character.isLetter(c) && !Character.isWhitespace(c) || Character.isISOControl(c)) {
+//            
+//           txtPersonName.setEditable(true); 
+//        } else {
+//             txtPersonName.setEditable(false); 
+//       }
       
 
     }//GEN-LAST:event_txtPersonNameKeyPressed
 
+    private void txtAddressKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyPressed
+ 
+    }//GEN-LAST:event_txtAddressKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnCreate;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;

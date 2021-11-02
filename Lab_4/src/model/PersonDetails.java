@@ -36,11 +36,11 @@ public class PersonDetails {
     }
 
     public void setCity(String city) {
-        if(city.matches("[A-Za-z]+")) {
+        //if(city.matches("[A-Za-z]+")) {
             this.city = city;
-        } else {
-            JOptionPane.showMessageDialog(null, "Please enter a valid city name.");
-        }   
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Please enter a valid city name.");
+//        }   
     }
 
     public String getAddr() {
@@ -48,11 +48,11 @@ public class PersonDetails {
     }
 
     public void setAddr(String addr) {
-        if(addr.matches("[A-Za-z]+")) {
+       // if(addr.matches("[A-Za-z]+")) {
             this.addr = addr;
-        } else {
-            JOptionPane.showMessageDialog(null, "Please enter a valid Address.");
-        }    
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Please enter a valid Address.");
+//        }    
     }
 
     public String getName() {
@@ -60,11 +60,11 @@ public class PersonDetails {
     }
 
     public void setName(String name) {
-        if(name.matches("[A-Za-z]+")) {
+       // if(name.matches("[A-Za-z]+")) {
             this.name = name;
-        } else {
-            JOptionPane.showMessageDialog(null, "Please enter a valid Person Name.");
-        }     
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Please enter a valid Person Name.");
+//        }     
     }
 
     public String getGender() {
@@ -84,11 +84,11 @@ public class PersonDetails {
     }
 
     public void setCommunity(String community) {
-         if(community.matches("[A-Za-z]+")) {
+        // if(community.matches("[A-Za-z]+")) {
            this.community = community;
-        } else {
-            JOptionPane.showMessageDialog(null, "Please enter a valid Community Name.");
-        }    
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Please enter a valid Community Name.");
+//        }    
     }
 
     public int getAge() {
@@ -102,11 +102,11 @@ public class PersonDetails {
 ////        if() {  
 //        this.age = age;   
 //        }
-      if(age > 0 && age <110) {
+      //if(age > 0 && age <110) {
            this.age = age;   
-      } else {
-          JOptionPane.showMessageDialog(null, "Please enter a valid age");
-      }   
+//      } else {
+//          JOptionPane.showMessageDialog(null, "Please enter a valid age");
+//      }   
     }
     
     
