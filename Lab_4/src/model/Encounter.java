@@ -40,19 +40,15 @@ public class Encounter {
     
     
     public ArrayList<VitalSigns> filterByCommunity(String community) {
-        
-       
             ArrayList<VitalSigns> list = new ArrayList<>();
         for(VitalSigns vs : history) { 
            if(vs.getCommunity().contains(community)) 
         {
-            
+            if(vs.getBpReport().contains("Abnormal")) {
                list.add(vs);
-                
-         }  
-           
+            }  
+         }       
     }
-       
         return list;
    }
 }

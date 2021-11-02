@@ -18,6 +18,17 @@ public class VitalSigns {
     int unique_id;
     String date_of_visit;
    String community;
+   String bpReport;
+
+    public String getBpReport() {
+        return bpReport;
+    }
+
+    public void setBpReport(String bpReport) {
+        this.bpReport = bpReport;
+    }
+   
+   
 
     public String getCommunity() {
         return community;

@@ -45,18 +45,18 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
 
         tbl2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Date OF Visit", "Blood Pressure", "Temperature", "Patient ID", "Community"
+                "Date OF Visit", "Blood Pressure", "Temperature", "Patient ID", "Community", "BP Report"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -106,10 +106,13 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
 
     private void btnFilterByCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterByCommunityActionPerformed
         
+        
+        
         lblTtile.setText("Filter By Community");
 
         String searchCommunity = null;
         String community = JOptionPane.showInputDialog(null, "Enter the Community.", searchCommunity);
+        
         ArrayList<VitalSigns> list = history3.filterByCommunity(community);
         
         populateTable3(list);
@@ -125,19 +128,20 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable2() {
-       // JOptionPane.showMessageDialog(null, "hiiiii");
+      
     
     DefaultTableModel model = (DefaultTableModel) tbl2.getModel();
     model.setRowCount(0);
     
     for(VitalSigns cd : history3.getHistory()) {
         
-        Object[] row = new Object[5];
+        Object[] row = new Object[6];
         row[0] = cd;
         row[1] = cd.getBlood_pressure();
         row[2] = cd.getTemperature();
         row[3] = cd.getUnique_id();
         row[4] = cd.getCommunity();
+        row[5] = cd.getBpReport();
   
         model.addRow(row);
     }
@@ -152,12 +156,13 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
     
     for(VitalSigns cd : list) {
         
-        Object[] row = new Object[5];
+        Object[] row = new Object[6];
         row[0] = cd;
         row[1] = cd.getBlood_pressure();
         row[2] = cd.getTemperature();
         row[3] = cd.getUnique_id();
         row[4] = cd.getCommunity();
+        row[5] = cd.getBpReport();
   
         model.addRow(row);
     }

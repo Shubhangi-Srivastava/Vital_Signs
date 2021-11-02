@@ -34,4 +34,9 @@ public class PatientDirectory {
         history.add(newPatient);
         return newPatient;
     }
+     
+     public void deletePatients(PatientDetails pd) {
+        
+        history.remove(pd);
+    }
 }

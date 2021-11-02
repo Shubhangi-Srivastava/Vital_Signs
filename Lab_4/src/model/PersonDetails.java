@@ -28,6 +28,8 @@ public class PersonDetails {
     int age;
     String city;
     String addr;
+  
+    
 
     public String getCity() {
         return city;
@@ -106,6 +108,8 @@ public class PersonDetails {
           JOptionPane.showMessageDialog(null, "Please enter a valid age");
       }   
     }
+    
+    
     
      @Override
     public String toString() {

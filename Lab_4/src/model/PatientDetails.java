@@ -24,7 +24,16 @@ public class PatientDetails {
     String addr;
     int unique_id;
     String date_of_visit;
+      String Report;
 
+    public String getReport() {
+        return Report;
+    }
+
+    public void setReport(String Report) {
+        this.Report = Report;
+    }
+    
     public int getUnique_id() {
         return unique_id;
     }
@@ -111,12 +120,11 @@ public class PatientDetails {
 
     public void setAddr(String addr) {
         this.addr = addr;
-    }   
+    }
     
     @Override
    public String toString() {
-       return name;
-      
+       return name; 
    } 
     
 }

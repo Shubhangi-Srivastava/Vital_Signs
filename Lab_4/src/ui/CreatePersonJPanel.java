@@ -70,12 +70,18 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         lblCity.setText("City:");
 
         txtPersonName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPersonNameKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPersonNameKeyReleased(evt);
             }
         });
 
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAgeKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAgeKeyReleased(evt);
             }
@@ -318,6 +324,44 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
              btnCreate.setEnabled(false);
          }  
     }//GEN-LAST:event_txtCityKeyReleased
+
+    private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
+       
+        char c= evt.getKeyChar();
+        String age= txtAge.getText();
+        
+        int length = age.length();
+        
+        if(c >= '0' && c <= '9') {
+            
+            if(length<2){
+                  txtAge.setEditable(true); 
+
+            } else {  
+            txtAge.setEditable(false);    
+            }
+        } else {
+                if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+                    txtAge.setEditable(true);
+                } else {
+            txtAge.setEditable(false); 
+                }
+            }   
+    }//GEN-LAST:event_txtAgeKeyPressed
+
+    private void txtPersonNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPersonNameKeyPressed
+
+         char c= evt.getKeyChar();
+        
+        if(Character.isLetter(c) && !Character.isWhitespace(c) || Character.isISOControl(c)) {
+            
+           txtPersonName.setEditable(true); 
+        } else {
+             txtPersonName.setEditable(false); 
+       }
+      
+
+    }//GEN-LAST:event_txtPersonNameKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
