@@ -235,16 +235,25 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="Female"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtFemaleMouseClicked"/>
+          </Events>
         </Component>
         <Component class="java.awt.Checkbox" name="txtMale">
           <Properties>
             <Property name="label" type="java.lang.String" value="Male"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMaleMouseClicked"/>
+          </Events>
         </Component>
         <Component class="java.awt.Checkbox" name="txtOther">
           <Properties>
             <Property name="label" type="java.lang.String" value="Other"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtOtherMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAddress">
           <Properties>

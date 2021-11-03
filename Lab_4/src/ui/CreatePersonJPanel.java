@@ -95,10 +95,25 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         lblGender.setText("Gender:");
 
         txtFemale.setLabel("Female");
+        txtFemale.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFemaleMouseClicked(evt);
+            }
+        });
 
         txtMale.setLabel("Male");
+        txtMale.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtMaleMouseClicked(evt);
+            }
+        });
 
         txtOther.setLabel("Other");
+        txtOther.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtOtherMouseClicked(evt);
+            }
+        });
 
         lblAddress.setText("Address:");
 
@@ -287,6 +302,17 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             
             JOptionPane.showMessageDialog(this, "Please enter valid details.");
         } else {
+            
+//            if(txtFemale.isEnabled() == true) {
+//                txtMale.setEnabled(false);
+//                txtOther.setEnabled(false);
+//            } else if(txtMale.isEnabled() == true) {
+//                txtFemale.setEnabled(false);
+//                txtOther.setEnabled(false);
+//            } else if(txtOther.isEnabled()==true){
+//                txtFemale.setEnabled(false);
+//                txtMale.setEnabled(false);
+//            }
         String person_name = txtPersonName.getText();
         int age = Integer.parseInt(txtAge.getText().toString());
         boolean female = txtFemale.getState();
@@ -420,6 +446,27 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     private void txtAddressKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyPressed
  
     }//GEN-LAST:event_txtAddressKeyPressed
+
+    private void txtFemaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFemaleMouseClicked
+       if(txtFemale.isEnabled()){
+                txtMale.setEnabled(false);
+                txtOther.setEnabled(false);
+       }
+    }//GEN-LAST:event_txtFemaleMouseClicked
+
+    private void txtMaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMaleMouseClicked
+                  if(txtMale.isEnabled()){
+                txtFemale.setEnabled(false);
+                txtOther.setEnabled(false);
+                  }
+    }//GEN-LAST:event_txtMaleMouseClicked
+
+    private void txtOtherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOtherMouseClicked
+                if(txtOther.isEnabled()){
+                txtFemale.setEnabled(false);
+                txtMale.setEnabled(false);
+                } 
+    }//GEN-LAST:event_txtOtherMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
