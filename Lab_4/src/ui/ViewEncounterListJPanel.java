@@ -42,6 +42,7 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
         tbl2 = new javax.swing.JTable();
         lblTtile = new javax.swing.JLabel();
         btnFilterByCommunity = new java.awt.Button();
+        btnAbnormalCount = new java.awt.Button();
 
         setBackground(new java.awt.Color(0, 204, 204));
 
@@ -79,6 +80,14 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAbnormalCount.setActionCommand("Display Count Of Abnormal Cases");
+        btnAbnormalCount.setLabel("Display Count of Abnormal Cases");
+        btnAbnormalCount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbnormalCountActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,7 +100,9 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(222, 222, 222)
-                .addComponent(btnFilterByCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnFilterByCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAbnormalCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(334, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,7 +114,9 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(btnFilterByCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(btnAbnormalCount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,8 +135,18 @@ public class ViewEncounterListJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnFilterByCommunityActionPerformed
 
+    private void btnAbnormalCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbnormalCountActionPerformed
+        
+        String commmunity = null;
+        String community = JOptionPane.showInputDialog(null, "Enter the Community for Abnormal Count", commmunity);
+       ArrayList<VitalSigns> list = history3.showCount(community);
+        populateTable3(list);    
+        
+    }//GEN-LAST:event_btnAbnormalCountActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnAbnormalCount;
     private java.awt.Button btnFilterByCommunity;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblTtile;

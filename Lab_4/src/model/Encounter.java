@@ -51,4 +51,20 @@ public class Encounter {
     }
         return list;
    }
+    
+    
+    public ArrayList<VitalSigns> showCount(String community) {
+         int count1 =0;
+         ArrayList<VitalSigns> list = new ArrayList<>();
+        for(VitalSigns c : history) {
+         if(c.getCommunity().contains(community)) {
+         if(c.getBpReport().contains("Abnormal")) {
+             count1++;
+             list.add(c);       
+    }
+        }
+        }
+        JOptionPane.showMessageDialog(null, "Total Abnormal BP Count :" + count1);
+        return list;
+    }
 }

@@ -17,7 +17,7 @@ public class PatientDetails {
      String name;
     String gender;
     float temperature;
-    double blood_pressure;
+    String blood_pressure;
     String community;
     int age;
     String city;
@@ -82,11 +82,11 @@ public class PatientDetails {
         this.temperature = temperature;
     }
 
-    public double getBlood_pressure() {
+    public String getBlood_pressure() {
         return blood_pressure;
     }
 
-    public void setBlood_pressure(double blood_pressure) {
+    public void setBlood_pressure(String blood_pressure) {
         this.blood_pressure = blood_pressure;
     }
 

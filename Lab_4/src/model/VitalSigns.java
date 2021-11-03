@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class VitalSigns {
     
     float temperature;
-    double blood_pressure;
+    String blood_pressure;
     int unique_id;
     String date_of_visit;
    String community;
@@ -56,15 +56,14 @@ public class VitalSigns {
         this.temperature = temperature;
     }
 
-    public double getBlood_pressure() {
+    public String getBlood_pressure() {
         return blood_pressure;
     }
 
-    public void setBlood_pressure(double blood_pressure) {
+    public void setBlood_pressure(String blood_pressure) {
         this.blood_pressure = blood_pressure;
     }
 
-    
 
     public String getDate_of_visit() {
         return date_of_visit;

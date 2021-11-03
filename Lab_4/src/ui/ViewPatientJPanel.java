@@ -122,7 +122,6 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
 
         lblDateOfVisit.setText("Date Of Visit :");
 
-        txtDateOfVisit.setEnabled(false);
         txtDateOfVisit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateOfVisitActionPerformed(evt);
@@ -314,32 +313,39 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
       
        
        txtPatientID.setText(String.valueOf(pd.getUnique_id()));
-       txtDateOfVisit.setText(String.valueOf(pd.getDate_of_visit()));
+       
        txtCommunity.setText(String.valueOf(pd.getCommunity()));
        
     }//GEN-LAST:event_btnAddNewEncounterActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
-         String pattern1 = "^100|[1-9]?\\d$";
+         //String pattern1 = "^100|[1-9]?\\d$";
+      String pattern = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)"
+                 + "(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3"
+                 + "(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|"
+                 + "[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|"
+                 + "(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$"; //dov
+           String pattern1 = "^([0-9]{1,2}){1}(\\.[0-9]{1,2})?$"; //temp
+        String pattern2 = "^\\d{1,3}\\/\\d{1,3}$"; //BP      
                 
-                
-      //  Pattern patt = Pattern.compile(pattern);
+       Pattern patt = Pattern.compile(pattern);
         Pattern patt1 = Pattern.compile(pattern1);
-       
+        Pattern patt2 = Pattern.compile(pattern2);
+        
+        Matcher match = patt.matcher(txtDateOfVisit.getText());
         Matcher match1 =  patt1.matcher(txtTemperature.getText());
-        Matcher match2 = patt1.matcher(txtBloodPressure.getText());
+        Matcher match2 = patt2.matcher(txtBloodPressure.getText());
 
-        if(!match1.matches() || !match2.matches()) {
+        if(!match1.matches() || !match2.matches() || !match.matches()) {
             
             JOptionPane.showMessageDialog(this, "Please enter valid Vital Signs, check the data entered in Blood Pressure and Temperature fields.");
         } else {
-        
-    
+
         int unique_id = Integer.parseInt(txtPatientID.getText());
         String DOV = txtDateOfVisit.getText();
         float temperature = Float.parseFloat(txtTemperature.getText());
-        double blood_pressure = Double.parseDouble(txtBloodPressure.getText());
+        String blood_pressure = txtBloodPressure.getText();
         String community = txtCommunity.getText();
         boolean Normal = chkNormal.getState();
         boolean abnormal = chkAbnormal.getState();
@@ -425,7 +431,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
         pd.setCommunity(newCommunity);
         pd.setCity(newCity);
         pd.setTemperature(Float.parseFloat(newTemperature));
-        pd.setBlood_pressure(Double.parseDouble(newBloodPressure));
+        pd.setBlood_pressure(newBloodPressure);
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
